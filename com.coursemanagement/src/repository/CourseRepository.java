@@ -1,9 +1,13 @@
 package repository;
 
+import model.Course;
+
+import java.util.List;
+
 public interface CourseRepository {
-    public void save();
-    public void findByID();
-    public void findAll();
-    public void deleteByID();
-    public void existsByID();
+    public Course save(Course courses);
+    public Course findByID(Integer id);
+    public List<Course> findAll();
+    public void deleteByID(Integer id);
+    public boolean existsByID(Integer id);
 }

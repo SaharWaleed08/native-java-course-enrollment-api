@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Student {
-    private int id;
+    private Integer id;
     private String fullName;
     private String email;
     private String password;
@@ -15,7 +15,7 @@ public class Student {
 
     }
 
-    public Student(int id, String fullName, String email, String password, Role role, CourseStatus active, LocalDateTime createdAt) {
+    public Student(Integer id, String fullName, String email, String password, Role role, CourseStatus active, LocalDateTime createdAt) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
@@ -53,7 +53,7 @@ public class Student {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

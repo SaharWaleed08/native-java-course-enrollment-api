@@ -1,8 +1,12 @@
 package repository;
 
+import model.AuditLog;
+
+import java.util.List;
+
 public interface AuditLogRepository {
-    public void save();
-    public void findByID();
-    public void findAll();
-    public void findByEntityType();
+    public AuditLog save(AuditLog auditLog) ;
+    public AuditLog findByID(Integer id);
+    public List<AuditLog> findAll();
+    public AuditLog findByEntityType(String entityType);
 }

@@ -1,10 +1,14 @@
 package repository;
 
+import model.Student;
+
+import java.util.List;
+
 public interface StudentRepository {
-    public void save();
-    public void findByID();
-    public void findByEmail();
-    public void findAll();
-    public void existsByEmail();
-    public void deleteByID();
+    public Student save(Student student);
+    public Student findByID(Integer id);
+    public Student findByEmail(String email);
+    public List<Student> findAll();
+    public boolean existsByEmail(String email);
+    public void deleteByID(Integer id);
 }

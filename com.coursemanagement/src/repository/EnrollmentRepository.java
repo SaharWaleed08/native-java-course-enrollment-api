@@ -1,10 +1,14 @@
 package repository;
 
+import model.Enrollment;
+
+import java.util.List;
+
 public interface EnrollmentRepository {
-    public void save();
-    public void findByID();
-    public void findAll();
-    public void findByStudentID();
-    public void existsByStudentIdAndCourseId();
-    public void deleteByID();
+    public Enrollment save(Enrollment enrollment);
+    public Enrollment findByID(Integer id);
+    public List<Enrollment> findAll();
+    public Enrollment findByStudentID(Integer studentID);
+    public boolean existsByStudentIdAndCourseId(Integer studentID,Integer courseID);
+    public void deleteByID(Integer id);
 }

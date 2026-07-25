@@ -1,23 +1,40 @@
 package repository;
 
+import model.Course;
+import model.Payment;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class InMemoryPaymentRepository implements PaymentRepository{
+    private int nextId = 1;
+
+    private Map<Integer, Payment> payments = new HashMap<>();
+
     @Override
-    public void save() {
-        
+    public Payment save(Payment payment) {
+        if (payment.getId()==0){
+            payment.setId(nextId++);
+        }
+        payments.put(payment.getId(),payment);
+        return payment;
+
     }
 
     @Override
-    public void findByID() {
-
+    public Payment findByID(Integer id) {
+        return payments.get(id);
     }
 
     @Override
-    public void findByEnrollmentID() {
-
+    public Payment findByEnrollmentID(Integer enrollmentID) {
+        return payments.get(enrollmentID);
     }
 
     @Override
-    public void findAll() {
-
+    public List<Payment> findAll() {
+        return new ArrayList<>(payments.values());
     }
 }
