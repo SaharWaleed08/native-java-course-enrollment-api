@@ -3,9 +3,10 @@ package model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Course {
-    private int id;
+    private UUID id;
     private String title;
     private String description;
     private BigDecimal price;
@@ -19,8 +20,8 @@ public class Course {
 
     }
 
-    public Course(int id, String title, String description, BigDecimal price, int capacity, int availableSeats, CourseStatus courseStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
+    public Course(String title, String description, BigDecimal price, int capacity, int availableSeats, CourseStatus courseStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
+
         this.title = title;
         this.description = description;
         this.price = price;
@@ -58,12 +59,8 @@ public class Course {
         return Objects.hash(id, title, description, price, capacity, availableSeats, courseStatus, createdAt, updatedAt);
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {

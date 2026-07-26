@@ -2,21 +2,22 @@ package model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Student {
-    private Integer id;
+    private UUID id;
     private String fullName;
     private String email;
     private String password;
     private Role role;
     private CourseStatus active;
     private LocalDateTime createdAt;
-    public Student(){
+
+    public Student() {
 
     }
 
-    public Student(Integer id, String fullName, String email, String password, Role role, CourseStatus active, LocalDateTime createdAt) {
-        this.id = id;
+    public Student(String fullName, String email, String password, Role role, CourseStatus active, LocalDateTime createdAt) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
@@ -43,19 +44,16 @@ public class Student {
                 "id=" + id +
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
-                ", role='"+ role+'\''+
-                ", active='"+ active+'\''+
-                ", created at ='"+ createdAt+'\''+
+                ", role='" + role + '\'' +
+                ", active='" + active + '\'' +
+                ", created at ='" + createdAt + '\'' +
                 '}';
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getFullName() {
         return fullName;

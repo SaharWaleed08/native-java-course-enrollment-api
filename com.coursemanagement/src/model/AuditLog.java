@@ -2,9 +2,10 @@ package model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 public class AuditLog {
-    private int id;
+    private UUID id;
     private String action;
     private String entityType;
     private String entityID;
@@ -15,13 +16,11 @@ public class AuditLog {
 
     }
 
-    public AuditLog(int id, String action, String entityType, String entityID, String description, LocalDateTime createdAt) {
-        this.id = id;
+    public AuditLog( String action, String entityType, String entityID, String description) {
         this.action = action;
         this.entityType = entityType;
         this.entityID = entityID;
         this.description = description;
-        this.createdAt = createdAt;
     }
 
     @Override
@@ -48,14 +47,9 @@ public class AuditLog {
         return Objects.hash(id, action, entityType, entityID, description, createdAt);
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getAction() {
         return action;
     }
