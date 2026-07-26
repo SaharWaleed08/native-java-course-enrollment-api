@@ -3,11 +3,12 @@ package repository;
 import model.Course;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface CourseRepository {
-    public Course save(Course courses);
-    public Course findByID(Integer id);
+    public UUID save(Course courses);
+    public Course findByID(UUID id);
     public List<Course> findAll();
-    public void deleteByID(Integer id);
-    public boolean existsByID(Integer id);
+    public void deleteByID(UUID id);
+    public boolean existsByID(UUID id);
 }

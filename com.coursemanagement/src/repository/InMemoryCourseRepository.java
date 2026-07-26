@@ -2,28 +2,20 @@ package repository;
 
 import model.Course;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class InMemoryCourseRepository implements CourseRepository {
-    private int nextId = 1;
-
-    private Map<Integer, Course> courses = new HashMap<>();
+    private Map<UUID, Course> courses = new HashMap<>();
 
     @Override
-    public Course save(Course course) {
+    public UUID save(Course course) {
 
-        if (course.getId() == 0) {
-            course.setId(nextId++);
-        }
         courses.put(course.getId(), course);
-        return course;
+        return course.getId();
     }
 
     @Override
-    public Course findByID(Integer id) {
+    public Course findByID(UUID id) {
         return courses.get(id);
     }
 
@@ -33,13 +25,13 @@ public class InMemoryCourseRepository implements CourseRepository {
     }
 
     @Override
-    public void deleteByID(Integer id) {
+    public void deleteByID(UUID id) {
         courses.remove(id);
 
     }
 
     @Override
-    public boolean existsByID(Integer id) {
+    public boolean existsByID(UUID id) {
         if (courses.get(id) != null) {
             return true;
         } else {

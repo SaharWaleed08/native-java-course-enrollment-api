@@ -3,13 +3,14 @@ package repository;
 import model.Payment;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface PaymentRepository {
-    public Payment save(Payment payment);
+    public UUID save(Payment payment);
 
-    public Payment findByID(Integer id);
+    public Payment findByID(UUID id);
 
-    public Payment findByEnrollmentID(Integer enrollmentID);
+    public Payment findByEnrollmentID(UUID enrollmentID);
 
     public List<Payment> findAll();
 

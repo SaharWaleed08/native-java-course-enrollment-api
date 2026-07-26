@@ -2,28 +2,22 @@ package repository;
 
 import model.Student;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class InMemoryStudentRepository implements StudentRepository {
-    private int nextId = 1;
 
-    private Map<Integer, Student> students = new HashMap<>();
+    private Map<UUID, Student> students = new HashMap<>();
 
     @Override
-    public Student save(Student student) {
+    public UUID save(Student student) {
 
-        if (student.getId() == 0) {
-            student.setId(nextId++);
-        }
+
         students.put(student.getId(), student);
-        return student;
+        return student.getId();
     }
 
     @Override
-    public Student findByID(Integer id) {
+    public Student findByID(UUID id) {
         return students.get(id);
     }
 
@@ -49,7 +43,7 @@ public class InMemoryStudentRepository implements StudentRepository {
     }
 
     @Override
-    public void deleteByID(Integer id) {
+    public void deleteByID(UUID id) {
         students.remove(id);
 
     }

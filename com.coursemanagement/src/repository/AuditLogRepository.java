@@ -3,10 +3,11 @@ package repository;
 import model.AuditLog;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface AuditLogRepository {
-    public AuditLog save(AuditLog auditLog) ;
-    public AuditLog findByID(Integer id);
+    public UUID save(AuditLog auditLog) ;
+    public AuditLog findByID(UUID id);
     public List<AuditLog> findAll();
     public AuditLog findByEntityType(String entityType);
 }

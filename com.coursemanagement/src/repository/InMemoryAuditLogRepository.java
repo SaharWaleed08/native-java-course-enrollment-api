@@ -4,28 +4,22 @@ package repository;
 
 import model.AuditLog;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class InMemoryAuditLogRepository implements AuditLogRepository{
-    private int nextId = 1;
 
-    private Map<Integer, AuditLog> auditLogs = new HashMap<>();
+    private Map<UUID, AuditLog> auditLogs = new HashMap<>();
 
     @Override
-    public AuditLog save(AuditLog auditLog) {
-        if (auditLog.getId()==0){
-            auditLog.setId(nextId++);
-        }
+    public UUID save(AuditLog auditLog) {
+
         auditLogs.put(auditLog.getId(),auditLog);
-        return auditLog;
+        return auditLog.getId();
 
     }
 
     @Override
-    public AuditLog findByID(Integer id) {
+    public AuditLog findByID(UUID id) {
         return auditLogs.get(id);
     }
 
