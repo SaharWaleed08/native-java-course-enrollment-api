@@ -14,13 +14,10 @@ public class Payment {
     private String transactionReference;
     private LocalDateTime paymentDate;
 
-    public Payment(BigDecimal amount, PaymentMethod paymentMethod, PaymentStatus paymentStatus, String transactionReference, LocalDateTime paymentDate) {
-
+    public Payment(UUID enrollmentID, BigDecimal amount, PaymentMethod paymentMethod) {
+        this.enrollmentID = enrollmentID;
         this.amount = amount;
         this.paymentMethod = paymentMethod;
-        this.paymentStatus = paymentStatus;
-        this.transactionReference = transactionReference;
-        this.paymentDate = paymentDate;
     }
 
     @Override

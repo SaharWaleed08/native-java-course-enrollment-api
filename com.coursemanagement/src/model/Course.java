@@ -18,16 +18,13 @@ public class Course {
 
 
 
-    public Course(String title, String description, BigDecimal price, int capacity, int availableSeats, CourseStatus courseStatus) {
+    public Course(String title, String description, BigDecimal price, int capacity) {
 
         this.title = title;
         this.description = description;
         this.price = price;
         this.capacity = capacity;
-        this.availableSeats = availableSeats;
-        this.courseStatus = courseStatus;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+
     }
 
     @Override

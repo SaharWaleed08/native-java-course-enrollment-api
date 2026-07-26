@@ -14,11 +14,9 @@ public class Enrollment {
     private EnrollmentStatus enrollmentStatus;
 
 
-    public Enrollment(BigDecimal originalPrice, BigDecimal discountAmount, BigDecimal finalPrice, EnrollmentStatus enrollmentStatus) {
-        this.originalPrice = originalPrice;
-        this.discountAmount = discountAmount;
-        this.finalPrice = finalPrice;
-        this.enrollmentStatus = enrollmentStatus;
+    public Enrollment(UUID studentID, UUID courseID) {
+        this.studentID = studentID;
+        this.courseID = courseID;
     }
 
     @Override

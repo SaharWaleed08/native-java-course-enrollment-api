@@ -14,14 +14,11 @@ public class Student {
     private LocalDateTime createdAt;
 
 
-    public Student(String fullName, String email, String password, Role role, boolean active) {
+    public Student(String fullName, String email, String password) {
 
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.role = role;
-        this.active = active;
-
     }
 
     @Override
