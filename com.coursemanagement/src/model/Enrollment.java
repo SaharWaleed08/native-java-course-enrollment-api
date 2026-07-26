@@ -2,24 +2,19 @@ package model;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Enrollment {
-    private int id;
-    private int studentID;
-    private int courseID;
+    private UUID id;
+    private UUID studentID;
+    private UUID courseID;
     private BigDecimal originalPrice;
     private BigDecimal discountAmount;
     private BigDecimal finalPrice;
     private EnrollmentStatus enrollmentStatus;
 
-    public Enrollment(){
 
-    }
-
-    public Enrollment(int id, int studentID, int courseID, BigDecimal originalPrice, BigDecimal discountAmount, BigDecimal finalPrice, EnrollmentStatus enrollmentStatus) {
-        this.id = id;
-        this.studentID = studentID;
-        this.courseID = courseID;
+    public Enrollment(BigDecimal originalPrice, BigDecimal discountAmount, BigDecimal finalPrice, EnrollmentStatus enrollmentStatus) {
         this.originalPrice = originalPrice;
         this.discountAmount = discountAmount;
         this.finalPrice = finalPrice;
@@ -51,29 +46,23 @@ public class Enrollment {
         return Objects.hash(id, studentID, courseID, originalPrice, discountAmount, finalPrice, enrollmentStatus);
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public int getStudentID() {
+
+    public UUID getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
-    }
 
-    public int getCourseID() {
+
+    public UUID getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(int courseID) {
-        this.courseID = courseID;
-    }
+
 
     public BigDecimal getOriginalPrice() {
         return originalPrice;

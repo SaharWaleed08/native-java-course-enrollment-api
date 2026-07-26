@@ -3,23 +3,19 @@ package model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Payment {
-    private int id;
-    private int enrollmentID;
+    private UUID id;
+    private UUID enrollmentID;
     private BigDecimal amount;
     private PaymentMethod paymentMethod;
     private PaymentStatus paymentStatus;
     private String transactionReference;
     private LocalDateTime paymentDate;
 
-    public Payment(){
+    public Payment(BigDecimal amount, PaymentMethod paymentMethod, PaymentStatus paymentStatus, String transactionReference, LocalDateTime paymentDate) {
 
-    }
-
-    public Payment(int id, int enrollmentID, BigDecimal amount, PaymentMethod paymentMethod, PaymentStatus paymentStatus, String transactionReference, LocalDateTime paymentDate) {
-        this.id = id;
-        this.enrollmentID = enrollmentID;
         this.amount = amount;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
@@ -52,21 +48,15 @@ public class Payment {
         return Objects.hash(id, enrollmentID, amount, paymentMethod, paymentStatus, transactionReference, paymentDate);
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public int getEnrollmentID() {
+    public UUID getEnrollmentID() {
         return enrollmentID;
     }
 
-    public void setEnrollmentID(int enrollmentID) {
-        this.enrollmentID = enrollmentID;
-    }
 
     public BigDecimal getAmount() {
         return amount;
