@@ -24,7 +24,12 @@ public class InMemoryPaymentRepository implements PaymentRepository{
 
     @Override
     public Payment findByEnrollmentID(UUID enrollmentID) {
-        return payments.get(enrollmentID);
+        for (Payment payment:payments.values()){
+            if (payment.getEnrollmentID().equals(enrollmentID)){
+                return payment;
+            }
+        }
+        return null;
     }
 
     @Override

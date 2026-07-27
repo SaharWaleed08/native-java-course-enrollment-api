@@ -23,7 +23,12 @@ public class InMemoryStudentRepository implements StudentRepository {
 
     @Override
     public Student findByEmail(String email) {
-        return students.get(email);
+        for (Student student : students.values()) {
+            if (student.getEmail().equals(email)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -33,11 +38,12 @@ public class InMemoryStudentRepository implements StudentRepository {
 
     @Override
     public boolean existsByEmail(String email) {
-        if (students.get(email) != null) {
-            return true;
-        } else {
-            return false;
+        for (Student student : students.values()) {
+            if (student.getEmail().equals(email)) {
+                return true;
+            }
         }
+        return false;
 
 
     }

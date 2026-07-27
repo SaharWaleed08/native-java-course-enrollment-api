@@ -29,16 +29,23 @@ public class InMemoryEnrollmentRepository implements EnrollmentRepository {
 
     @Override
     public Enrollment findByStudentID(UUID studentID) {
-        return enrollments.get(studentID);
+        for (Enrollment enrollment : enrollments.values()) {
+            if (enrollment.getStudentID().equals(studentID)) {
+                return enrollment;
+            }
+        }
+        return null;
     }
 
     @Override
-    public boolean existsByStudentIdAndCourseId(UUID studentID,UUID courseID) {
-        if (enrollments.get(studentID)!=null&&enrollments.get(courseID)!=null){
-            return true;
-        }else {
-            return false;
+    public boolean existsByStudentIdAndCourseId(UUID studentID, UUID courseID) {
+        for (Enrollment enrollment : enrollments.values()) {
+            if ((enrollment.getStudentID().equals(studentID)) && (enrollment.getCourseID().equals(courseID))) {
+                return true;
+            }
+
         }
+        return false;
 
     }
 
