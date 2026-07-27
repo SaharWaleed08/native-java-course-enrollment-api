@@ -19,7 +19,7 @@ public class Course {
 
 
     public Course(String title, String description, BigDecimal price, int capacity) {
-
+        this.id=UUID.randomUUID();
         this.title = title;
         this.description = description;
         this.price = price;

@@ -15,6 +15,7 @@ public class Enrollment {
 
 
     public Enrollment(UUID studentID, UUID courseID) {
+        this.id=UUID.randomUUID();
         this.studentID = studentID;
         this.courseID = courseID;
     }

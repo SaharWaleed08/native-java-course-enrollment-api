@@ -15,6 +15,7 @@ public class Payment {
     private LocalDateTime paymentDate;
 
     public Payment(UUID enrollmentID, BigDecimal amount, PaymentMethod paymentMethod) {
+        this.id=UUID.randomUUID();
         this.enrollmentID = enrollmentID;
         this.amount = amount;
         this.paymentMethod = paymentMethod;

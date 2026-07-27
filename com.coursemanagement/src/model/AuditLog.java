@@ -12,12 +12,9 @@ public class AuditLog {
     private String description;
     private LocalDateTime createdAt;
 
-    public AuditLog() {
-
-    }
-
     public AuditLog(String action, String entityType, String entityID, String description) {
 
+        this.id=UUID.randomUUID();
         this.action = action;
         this.entityType = entityType;
         this.entityID = entityID;

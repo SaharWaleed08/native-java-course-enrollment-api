@@ -16,6 +16,7 @@ public class Student {
 
     public Student(String fullName, String email, String password) {
 
+        this.id = UUID.randomUUID();
         this.fullName = fullName;
         this.email = email;
         this.password = password;
@@ -48,7 +49,6 @@ public class Student {
     public UUID getId() {
         return id;
     }
-
 
 
     public String getFullName() {
