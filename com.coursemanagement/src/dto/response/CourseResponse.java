@@ -25,6 +25,19 @@ public class CourseResponse {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "CourseResponse{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", capacity=" + capacity +
+                ", availableSeats=" + availableSeats +
+                ", status=" + status +
+                '}';
+    }
+
     public UUID getId() {
         return id;
     }

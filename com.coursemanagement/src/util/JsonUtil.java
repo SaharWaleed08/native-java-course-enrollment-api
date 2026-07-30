@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class JsonUtil {
-    public String readString(String body, String key) {
+    public static String readString(String body, String key) {
         String search = "\"" + key + "\"";
         int start = body.indexOf(search);
 
@@ -19,7 +19,7 @@ public class JsonUtil {
         return body.substring(start, end);
     }
 
-    public int readInt(String body, String key) {
+    public static int readInt(String body, String key) {
         String search = "\"" + key + "\"";
         int start = body.indexOf(search);
 
@@ -43,7 +43,7 @@ public class JsonUtil {
         return Integer.parseInt(body.substring(start, end));
     }
 
-    public BigDecimal readDecimal(String body, String key) {
+    public static BigDecimal readDecimal(String body, String key) {
         String search = "\"" + key + "\"";
         int start = body.indexOf(search);
 
@@ -68,11 +68,11 @@ public class JsonUtil {
         return new BigDecimal(body.substring(start, end));
     }
 
-    public Enum readEnum(String body, String key) {
+    public static Enum readEnum(String body, String key) {
         return null;
     }
 
-    public void requireField(String body, String key) {
+    public static void requireField(String body, String key) {
         String value = readString(body, key);
 
         if (value == null || value.trim().isEmpty()) {
@@ -80,7 +80,7 @@ public class JsonUtil {
         }
     }
 
-    public String escape(String text) {
+    public static String escape(String text) {
         if (text == null) {
             return "";
         }
@@ -93,7 +93,7 @@ public class JsonUtil {
                 .replace("\t", "\\t");
     }
 
-    public String toJson(List<?> list) {
+    public static String toJson(List<?> list) {
         StringBuilder json = new StringBuilder("[");
         for (int i = 0; i < list.size(); i++) {
             json.append(list.get(i).toString());
@@ -107,7 +107,7 @@ public class JsonUtil {
         return json.toString();
     }
 
-    public String errorJson(String message) {
+    public static String errorJson(String message) {
         return "{\"message\":\"" + escape(message) + "\"}";
     }
 }

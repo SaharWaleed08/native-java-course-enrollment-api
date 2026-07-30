@@ -16,8 +16,19 @@ public class StudentResponse {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
-        this.role = role;
-        this.active = active;
+        this.role = Role.STUDENT;
+        this.active = true;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentResponse{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", active=" + active +
+                '}';
     }
 
     public UUID getId() {
