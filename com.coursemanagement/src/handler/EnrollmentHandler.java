@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 
 public class EnrollmentHandler implements HttpHandler {
+
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
