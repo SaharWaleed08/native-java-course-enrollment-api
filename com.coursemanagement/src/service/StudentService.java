@@ -5,7 +5,7 @@ import dto.request.RegisterStudentRequest;
 import dto.response.StudentResponse;
 import model.Student;
 import repository.InMemoryStudentRepository;
-import repository.StudentRepository;
+
 
 import java.util.List;
 import java.util.UUID;
@@ -36,14 +36,22 @@ public class StudentService {
 
     public StudentResponse findStudentByID(UUID id) {
         StudentMapper studentMapper = new StudentMapper();
-        Student student = studentRepository.findByID(id);
-        return studentMapper.toResponse(student);
+        return studentMapper.toResponse(studentRepository.findByID(id));
+    }
+
+    public StudentResponse findStudentByEmail(String email) {
+        StudentMapper studentMapper = new StudentMapper();
+        return studentMapper.toResponse(studentRepository.findByEmail(email));
     }
 
     public List<StudentResponse> findAllStudent() {
         StudentMapper studentMapper = new StudentMapper();
         List<Student> student = studentRepository.findAll();
         return studentMapper.toResponse(student);
+    }
+
+    public void deleteById(UUID id) {
+        studentRepository.deleteByID(id);
 
     }
 }
