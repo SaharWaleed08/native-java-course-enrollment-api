@@ -5,14 +5,14 @@ import model.Payment;
 
 import java.util.*;
 
-public class InMemoryPaymentRepository implements PaymentRepository{
+public class InMemoryPaymentRepository implements PaymentRepository {
 
     private Map<UUID, Payment> payments = new HashMap<>();
 
     @Override
     public UUID save(Payment payment) {
 
-        payments.put(payment.getId(),payment);
+        payments.put(payment.getId(), payment);
         return payment.getId();
 
     }
@@ -24,8 +24,8 @@ public class InMemoryPaymentRepository implements PaymentRepository{
 
     @Override
     public Payment findByEnrollmentID(UUID enrollmentID) {
-        for (Payment payment:payments.values()){
-            if (payment.getEnrollmentID().equals(enrollmentID)){
+        for (Payment payment : payments.values()) {
+            if (payment.getEnrollmentID().equals(enrollmentID)) {
                 return payment;
             }
         }
@@ -35,5 +35,11 @@ public class InMemoryPaymentRepository implements PaymentRepository{
     @Override
     public List<Payment> findAll() {
         return new ArrayList<>(payments.values());
+    }
+
+
+    @Override
+    public void delete(UUID paymentId) {
+        payments.remove(paymentId);
     }
 }

@@ -10,6 +10,7 @@ public interface EnrollmentRepository {
     public Enrollment findByID(UUID id);
     public List<Enrollment> findAll();
     public Enrollment findByStudentID(UUID studentID);
+    public Enrollment findByCourseID(UUID courseID);
     public boolean existsByStudentIdAndCourseId(UUID studentID,UUID courseID);
     public void deleteByID(UUID id);
 }

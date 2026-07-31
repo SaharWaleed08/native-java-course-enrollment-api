@@ -49,6 +49,11 @@ public class InMemoryStudentRepository implements StudentRepository {
     }
 
     @Override
+    public boolean existsById(UUID id) {
+        return students.containsKey(id);
+    }
+
+    @Override
     public void deleteByID(UUID id) {
         students.remove(id);
 

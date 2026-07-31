@@ -10,6 +10,7 @@ public interface StudentRepository {
     public Student findByID(UUID id);
     public Student findByEmail(String email);
     public List<Student> findAll();
+    public boolean existsById(UUID id);
     public boolean existsByEmail(String email);
     public void deleteByID(UUID id);
 }

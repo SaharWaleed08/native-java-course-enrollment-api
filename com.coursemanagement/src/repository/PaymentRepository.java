@@ -14,4 +14,5 @@ public interface PaymentRepository {
 
     public List<Payment> findAll();
 
+    public void delete(UUID paymentId);
 }
