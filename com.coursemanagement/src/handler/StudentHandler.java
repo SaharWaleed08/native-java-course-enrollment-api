@@ -31,9 +31,8 @@ public class StudentHandler implements HttpHandler {
         switch (method) {
 
             case "GET":
-                UUID id = UUID.fromString(JsonUtil.readString(body, "id"));
+                UUID id = UUID.fromString(HttpUtil.getId(exchange));
                 StudentResponse response = studentService.findStudentByID(id);
-
                 HttpUtil.sendJson(exchange, 200, response.toString());
 
                 break;
@@ -43,8 +42,13 @@ public class StudentHandler implements HttpHandler {
                 String email = JsonUtil.readString(body, "email");
                 String password = JsonUtil.readString(body, "password");
                 StudentResponse response1 = studentService.registerStudent(new RegisterStudentRequest(fullName, email, password));
-                HttpUtil.sendJson(exchange,201,response1.toString());
+                HttpUtil.sendJson(exchange, 201, response1.toString());
 
+                break;
+            case "DELETE":
+                UUID id1 = UUID.fromString(HttpUtil.getId(exchange));
+                studentService.deleteById(id1);
+                HttpUtil.sendNoContent(exchange);
                 break;
 
             default:
