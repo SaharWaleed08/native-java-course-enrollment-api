@@ -56,6 +56,11 @@ public class HttpUtil {
         return path;
 
     }
+    public static String getId(HttpExchange exchange){
+        String path=getPath(exchange);
+        String[] query=path.split("/");
+        return query[query.length-1];
+    }
 
     public static Map<String, String> getQueryParams(HttpExchange exchange) {
         Map<String, String> params = new HashMap<>();
